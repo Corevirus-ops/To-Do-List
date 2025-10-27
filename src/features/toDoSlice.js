@@ -21,10 +21,7 @@ const toDoSlice = createSlice({
             state.toDo[action.payload.index].name = action.payload.name
         },
         editToDoIsChecked: (state, action) => {
-            state.toDo = state.toDo.map(item => item.name === action.payload.index? {
-                isChecked: action.payload.checked,
-
-            } : item);
+        state.toDo[action.payload.index].isChecked = action.payload.isChecked
         }
     }
 })
