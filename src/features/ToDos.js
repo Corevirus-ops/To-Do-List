@@ -15,7 +15,7 @@ export default function ToDos() {
         <>
         <h1>The Word is here</h1>
         <NewToDos userInput={userInput} setUserInput={setUserInput}/>
-        <AddToDos userInput={userInput} setToDos={setToDos}/>
+        <AddToDos userInput={userInput} setToDos={setToDos} setUserInput={setUserInput} />
         </>
     )
 }

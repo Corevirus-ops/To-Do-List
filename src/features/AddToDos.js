@@ -1,11 +1,17 @@
 
 
-export default function AddToDos({userInput, setToDos}) {
+export default function AddToDos({userInput, setToDos, setUserInput}) {
     function addToDo() {
+
+
         setToDos(prevArray => 
-        [...prevArray, userInput]
+           prevArray.includes(userInput) ?
+        prevArray
+        :   [...prevArray, userInput]
         )
+           setUserInput('');
     }
+ 
 
 
     return (
