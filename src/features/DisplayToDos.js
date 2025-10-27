@@ -28,10 +28,12 @@ export default function DisplayToDos({userInput, setUserInput}) {
     return (
         <div className="toDoList flex flex-settings flex-column">
         {state.map((item, index) => 
-        <div key={index} className={item.isChecked ? 'flex completed' : 'toDoItemBox flex'} >
+        <div key={index} className={item.isChecked ? 'flex flex-settings toDoItemBox completed' : 'flex flex-settings toDoItemBox'} >
             <input className='toDoCheckBox' type="checkbox" checked={item.isChecked} onChange={(e) => editToDoItemIsChecked(index, e.target.checked)}/>
+            <div className="btn-group flex">
         <button className="btn btn-remove" type="button" onClick={() => removeToDoItem(item.name)}>-</button>
         <button className="btn btn-edit" type="button" onClick={() => editToDoItemName(index)}>Edit</button>
+            </div>
         <h3 className='toDoItemchecked' >{item.name}</h3>
         </div>
             
