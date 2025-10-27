@@ -5,7 +5,7 @@ import { useEffect, useState } from "react"
 
 export default function ToDos() {
     const [userInput, setUserInput] = useState('')
-    const [toDos, setToDos] = useState( JSON.parse(localStorage.getItem('toDos')) || [])
+    const [toDos, setToDos] = useState( JSON.parse(localStorage.getItem('toDos')) || {})
 
     useEffect(() => {
         console.log(toDos)

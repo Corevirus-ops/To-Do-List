@@ -1,6 +1,5 @@
-import { useState } from "react";
-
 export default function DisplayToDos({toDos, setToDos, userInput, setUserInput}) {
+
    
     function removeToDo(index) {
         setToDos(prevArray => 
@@ -24,11 +23,12 @@ export default function DisplayToDos({toDos, setToDos, userInput, setUserInput})
     return (
         <>
         {toDos.map((element, index) => 
-        <>
+        <div key={index}>
+            <input type="checkbox" />
         <button type="button" onClick={() => removeToDo(index)}>-</button>
         <button type="button" onClick={() => editToDo(index)}>Edit</button>
-        <h3 key={index}>{element}</h3>
-        </>
+        <h3>{element}</h3>
+        </div>
             
         ) }
         </>
