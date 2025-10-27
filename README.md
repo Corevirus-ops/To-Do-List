@@ -1,12 +1,12 @@
 # A Simple To Do checklist
 
 ## Contains 
-- create To Dos
+- Create To Dos
 - Delete To Dos
-- check To Dos
-- uncheck To Dos
-- edit To Dos
-- persistant To Dos
+- Check To Dos
+- Uncheck To Dos
+- Edit To Dos
+- Persistant To Dos
 
 ### Simple Project
 I wanted to code but wasn't feeling very productive, so I decided to do an entry level project as a mentality resetter.
