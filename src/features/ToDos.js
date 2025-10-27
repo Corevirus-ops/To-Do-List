@@ -1,6 +1,6 @@
 import NewToDos from './NewToDos';
 import AddToDos from './AddToDos';
-//import DisplayToDos from './DisplayToDos';
+import DisplayToDos from './DisplayToDos';
 import { useState } from "react"
 
 export default function ToDos() {
@@ -13,7 +13,7 @@ export default function ToDos() {
         <>
         <NewToDos userInput={userInput} setUserInput={setUserInput}/>
         <AddToDos userInput={userInput}  setUserInput={setUserInput} />
-
+        <DisplayToDos  userInput={userInput} setUserInput={setUserInput}  />
         </>
     )
 }

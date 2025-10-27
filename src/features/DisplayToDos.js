@@ -1,33 +1,33 @@
-export default function DisplayToDos({toDos, setToDos, userInput, setUserInput}) {
+import {useDispatch, useSelector } from "react-redux";
+import { getToDos, removeToDo, editToDoName, editToDoIsChecked} from "./toDoSlice";
 
-   
-    function removeToDo(index) {
-        setToDos(prevArray => 
-            prevArray.filter((_, slot) => slot !== index)
-        )
+export default function DisplayToDos({toDos, setToDos, userInput, setUserInput}) {
+    const state = useSelector(getToDos);
+    const dispatch = useDispatch();
+
+    function removeToDoItem(name) {
+        dispatch(removeToDo({name: name}))
     }
-    function editToDo(index) {
-        setToDos(prevArray => {
-            if (!prevArray.includes(userInput)) {
-                const newArray = prevArray.map((item, i) => i === index ? userInput : item)
-                setUserInput('')
-                return newArray
-            } else {
-                alert("This item already exists!");
-                return prevArray
-            }
-                }
-                    )
-                        }
+
+    function editToDoItemName(index) {
+    if (state.some(item => item.name === userInput)) {
+    
+    alert('Item already exist')
+    } else {
+        dispatch(editToDoName({name: userInput, index: index}))
+    }
+    }
+
+
 
     return (
         <>
-        {toDos.map((element, index) => 
+        {state.map((item, index) => 
         <div key={index}>
             <input type="checkbox" />
-        <button type="button" onClick={() => removeToDo(index)}>-</button>
-        <button type="button" onClick={() => editToDo(index)}>Edit</button>
-        <h3>{element}</h3>
+        <button type="button" onClick={() => removeToDoItem(item.name)}>-</button>
+        <button type="button" onClick={() => editToDoItemName(index)}>Edit</button>
+        <h3>{item.name}</h3>
         </div>
             
         ) }

@@ -11,11 +11,10 @@ function addItemToList() {
     alert('Item already exist')
     } else {
         dispatch(addToDo({name: userInput}))
+        setUserInput('')
     }
-
-
-
 }
+
 
 console.log(state)
 
