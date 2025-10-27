@@ -14,16 +14,9 @@ function addItemToList() {
         setUserInput('')
     }
 }
-
-
-console.log(state)
-
- 
-
-
     return (
         <>
-        <button type="button" onClick={addItemToList} >+</button>
+        <button className="btn btn-add" type="button" onClick={addItemToList} >+</button>
         </>
     )
 }
