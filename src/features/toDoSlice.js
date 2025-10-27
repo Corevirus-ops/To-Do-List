@@ -8,10 +8,11 @@ const toDoSlice = createSlice({
     },
     reducers: {
         addToDo: (state, action) => {
-            state.toDo = {
-                name: action.payload.name,
+                state.toDo.push(            
+            {   name: action.payload.name,
                 isChecked: false,
-            }
+            }) 
+
         },
         removeToDo: (state, action) => {
             state.toDo = state.toDo.filter(item => item.name !== action.payload.name);
@@ -33,5 +34,5 @@ const toDoSlice = createSlice({
 
 
 export const {addToDo, removeToDo, editToDoName, editToDoIsChecked} = toDoSlice.actions;
-export const getToDos = (state) => state.toDoSlice;
+export const getToDos = (state) => state.toDo.toDo;
 export default toDoSlice.reducer; 

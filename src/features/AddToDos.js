@@ -1,25 +1,30 @@
+import {useDispatch, useSelector } from "react-redux";
+import { addToDo, getToDos} from "./toDoSlice";
 
+export default function AddToDos({userInput, setUserInput}) {
+const state = useSelector(getToDos)
+const dispatch = useDispatch();
 
-export default function AddToDos({userInput, setToDos, setUserInput}) {
-    function addToDo() {
-
-//prevents re-adding a duplicate to do.
-setToDos(prevArray => {
-  if (prevArray.includes(userInput)) {
-    alert("This item already exists!");
-    return prevArray;
-  }
-  setUserInput('');
-  return [...prevArray, userInput];
-});
-           
+function addItemToList() {
+    if (state.some(item => item.name === userInput)) {
+    
+    alert('Item already exist')
+    } else {
+        dispatch(addToDo({name: userInput}))
     }
+
+
+
+}
+
+console.log(state)
+
  
 
 
     return (
         <>
-        <button type="button" onClick={addToDo} >+</button>
+        <button type="button" onClick={addItemToList} >+</button>
         </>
     )
 }
