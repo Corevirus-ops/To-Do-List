@@ -3,13 +3,16 @@
 export default function AddToDos({userInput, setToDos, setUserInput}) {
     function addToDo() {
 
-
-        setToDos(prevArray => 
-           prevArray.includes(userInput) ?
-        prevArray
-        :   [...prevArray, userInput]
-        )
-           setUserInput('');
+//prevents re-adding a duplicate to do.
+setToDos(prevArray => {
+  if (prevArray.includes(userInput)) {
+    alert("This item already exists!");
+    return prevArray;
+  }
+  setUserInput('');
+  return [...prevArray, userInput];
+});
+           
     }
  
 
