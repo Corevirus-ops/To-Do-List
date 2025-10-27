@@ -17,7 +17,7 @@ export default function ToDos() {
         <>
         <NewToDos userInput={userInput} setUserInput={setUserInput}/>
         <AddToDos userInput={userInput} setToDos={setToDos} setUserInput={setUserInput} />
-        <DisplayToDos toDos={toDos} setToDos={setToDos} />
+        <DisplayToDos toDos={toDos} setToDos={setToDos} userInput={userInput} setUserInput={setUserInput}  />
         </>
     )
 }
